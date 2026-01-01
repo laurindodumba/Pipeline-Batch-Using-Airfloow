@@ -1,0 +1,82 @@
+[2026-01-01T23:40:54.213+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-01T23:40:54.391+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [queued]>
+[2026-01-01T23:40:54.406+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [queued]>
+[2026-01-01T23:40:54.407+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-01T23:40:54.431+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extrair_clima_csv> on 2025-12-31 23:40:00+00:00
+[2026-01-01T23:40:54.442+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'clima_visual_crossing_csv', 'extrair_clima_csv', 'scheduled__2025-12-31T23:40:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/clima.py', '--cfg-path', '/tmp/tmpogrq23ik']
+[2026-01-01T23:40:54.446+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extrair_clima_csv
+[2026-01-01T23:40:54.451+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=907) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-01T23:40:54.453+0000] {standard_task_runner.py:64} INFO - Started process 908 to run task
+[2026-01-01T23:40:54.553+0000] {task_command.py:426} INFO - Running <TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [running]> on host 5aef474e8238
+[2026-01-01T23:40:54.710+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='clima_visual_crossing_csv' AIRFLOW_CTX_TASK_ID='extrair_clima_csv' AIRFLOW_CTX_EXECUTION_DATE='2025-12-31T23:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-31T23:40:00+00:00'
+[2026-01-01T23:40:54.712+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-01T23:40:54.781+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-01T23:40:54.783+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/clima.py", line 20, in extrair_clima_csv
+    api_key = Variable.get("VISUAL_CROSSING_API_KEY")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 143, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable VISUAL_CROSSING_API_KEY does not exist'
+[2026-01-01T23:40:54.808+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=clima_visual_crossing_csv, task_id=extrair_clima_csv, run_id=scheduled__2025-12-31T23:40:00+00:00, execution_date=20251231T234000, start_date=20260101T234054, end_date=20260101T234054
+[2026-01-01T23:40:54.829+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task extrair_clima_csv ('Variable VISUAL_CROSSING_API_KEY does not exist'; 908)
+[2026-01-01T23:40:54.879+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-01T23:40:54.902+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-01T23:40:54.906+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-01-01T23:43:06.154+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-01T23:43:06.191+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [queued]>
+[2026-01-01T23:43:06.201+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [queued]>
+[2026-01-01T23:43:06.202+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-01T23:43:06.217+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extrair_clima_csv> on 2025-12-31 23:40:00+00:00
+[2026-01-01T23:43:06.227+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=937) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-01-01T23:43:06.225+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'clima_visual_crossing_csv', 'extrair_clima_csv', 'scheduled__2025-12-31T23:40:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/clima.py', '--cfg-path', '/tmp/tmp1k2_0jx9']
+[2026-01-01T23:43:06.229+0000] {standard_task_runner.py:64} INFO - Started process 938 to run task
+[2026-01-01T23:43:06.230+0000] {standard_task_runner.py:91} INFO - Job 5: Subtask extrair_clima_csv
+[2026-01-01T23:43:06.356+0000] {task_command.py:426} INFO - Running <TaskInstance: clima_visual_crossing_csv.extrair_clima_csv scheduled__2025-12-31T23:40:00+00:00 [running]> on host 5aef474e8238
+[2026-01-01T23:43:06.454+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='clima_visual_crossing_csv' AIRFLOW_CTX_TASK_ID='extrair_clima_csv' AIRFLOW_CTX_EXECUTION_DATE='2025-12-31T23:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-31T23:40:00+00:00'
+[2026-01-01T23:43:06.456+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-01T23:43:06.480+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-01T23:43:06.482+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/clima.py", line 20, in extrair_clima_csv
+    api_key = Variable.get("VISUAL_CROSSING_API_KEY")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/variable.py", line 143, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable VISUAL_CROSSING_API_KEY does not exist'
+[2026-01-01T23:43:06.502+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=clima_visual_crossing_csv, task_id=extrair_clima_csv, run_id=scheduled__2025-12-31T23:40:00+00:00, execution_date=20251231T234000, start_date=20260101T234306, end_date=20260101T234306
+[2026-01-01T23:43:06.517+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 5 for task extrair_clima_csv ('Variable VISUAL_CROSSING_API_KEY does not exist'; 938)
+[2026-01-01T23:43:06.526+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-01-01T23:43:06.546+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-01-01T23:43:06.548+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
